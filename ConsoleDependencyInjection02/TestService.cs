@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -14,8 +16,7 @@ namespace ConsoleDependencyInjection02
         private readonly ILogger<TestService> _logger;
         private readonly AppSettings _config;
 
-        public TestService(ILogger<TestService> logger,
-        IOptions<AppSettings> config)
+        public TestService(ILogger<TestService> logger,IOptions<AppSettings> config)
         {
             _logger = logger;
             _config = config.Value;

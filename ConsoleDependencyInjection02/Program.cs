@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace ConsoleDependencyInjection02
 {
@@ -29,10 +30,12 @@ namespace ConsoleDependencyInjection02
 
             // build configuration
             var configuration = new ConfigurationBuilder()
-              .SetBasePath(Directory.GetCurrentDirectory())
-              .AddJsonFile("app-settings.json", false)
-              .Build();
+                  .SetBasePath(Directory.GetCurrentDirectory())
+                  .AddJsonFile("app-settings.json", false)
+                  .Build();
+
             serviceCollection.AddOptions();
+
             serviceCollection.Configure<AppSettings>(configuration.GetSection("Configuration"));
 
             // add services 
