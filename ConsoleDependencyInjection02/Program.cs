@@ -1,5 +1,10 @@
-﻿using System;
-using System.IO;
+﻿using System.IO;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
+using ConsoleDependencyInjection02.Models;
+using ConsoleDependencyInjection02.Services;
+
 
 namespace ConsoleDependencyInjection02
 {
@@ -14,35 +19,38 @@ namespace ConsoleDependencyInjection02
             // create service provider
             var serviceProvider = serviceCollection.BuildServiceProvider();
 
-            // entry to run app
+            // run app
             serviceProvider.GetService<App>().Run();
         }
 
         private static void ConfigureServices(IServiceCollection serviceCollection)
         {
-            // add configured instance of logging
-            serviceCollection.AddSingleton(new LoggerFactory()
-              .AddConsole()
-              .AddDebug());
-
             // add logging
+            serviceCollection.AddSingleton(new LoggerFactory()
+                .AddConsole()
+                .AddDebug());
             serviceCollection.AddLogging();
 
             // build configuration
             var configuration = new ConfigurationBuilder()
-                  .SetBasePath(Directory.GetCurrentDirectory())
-                  .AddJsonFile("app-settings.json", false)
-                  .Build();
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("app-settings.json", false)
+                .Build();
 
             serviceCollection.AddOptions();
-
             serviceCollection.Configure<AppSettings>(configuration.GetSection("Configuration"));
+            ConfigureConsole(configuration);
 
-            // add services 
+            // add services
             serviceCollection.AddTransient<ITestService, TestService>();
 
             // add app
             serviceCollection.AddTransient<App>();
+        }
+
+        private static void ConfigureConsole(IConfigurationRoot configuration)
+        {
+            System.Console.Title = configuration.GetSection("Configuration:ConsoleTitle").Value;
         }
     }
 }
