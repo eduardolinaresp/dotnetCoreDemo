@@ -15,7 +15,7 @@ namespace ConsoleTestCore
             {
                 UsuarioDAL _UserDAL = new UsuarioDAL();
 
-                Usuario User = _UserDAL.Read("patricio.m");
+                Usuario User = _UserDAL.Read("ADMIN");
 
                 Console.WriteLine(User.Nombre);
             }
