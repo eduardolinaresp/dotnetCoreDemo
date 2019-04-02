@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDependencyInjection0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CampusConsoleApp", "CampusConsoleApp\CampusConsoleApp.csproj", "{674152C2-058F-4378-9AC8-FD5FF63D2A61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampusWebApp", "CampusWebApp\CampusWebApp.csproj", "{6C896F3E-6598-433A-A472-262E4D376361}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{674152C2-058F-4378-9AC8-FD5FF63D2A61}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{674152C2-058F-4378-9AC8-FD5FF63D2A61}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{674152C2-058F-4378-9AC8-FD5FF63D2A61}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C896F3E-6598-433A-A472-262E4D376361}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C896F3E-6598-433A-A472-262E4D376361}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C896F3E-6598-433A-A472-262E4D376361}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C896F3E-6598-433A-A472-262E4D376361}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
