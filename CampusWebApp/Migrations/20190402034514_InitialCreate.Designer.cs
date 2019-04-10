@@ -20,7 +20,7 @@ namespace CampusWebApp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CampusWebApp.Models.Usuario", b =>
+            modelBuilder.Entity("CampusWebApp.Models.Student", b =>
                 {
                     b.Property<int>("UserId")
                         .ValueGeneratedOnAdd()
@@ -36,7 +36,7 @@ namespace CampusWebApp.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("TblUsuarios");
+                    b.ToTable("TblStudents");
                 });
 #pragma warning restore 612, 618
         }

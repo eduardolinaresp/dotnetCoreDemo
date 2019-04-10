@@ -8,10 +8,10 @@ namespace CampusWebApp.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "TblUsuarios",
+                name: "TblStudents",
                 columns: table => new
                 {
-                    UserId = table.Column<int>(nullable: false)
+                    StudentId = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     Name = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
@@ -20,14 +20,14 @@ namespace CampusWebApp.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_TblUsuarios", x => x.UserId);
+                    table.PrimaryKey("PK_TblStudents", x => x.StudentId);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "TblUsuarios");
+                name: "TblStudents");
         }
     }
 }

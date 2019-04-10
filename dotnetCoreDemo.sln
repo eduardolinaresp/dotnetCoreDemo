@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTestCore", "ConsoleTestCore\ConsoleTestCore.csproj", "{7174BFEB-4FDF-460C-A585-99819F3D13FC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemoApp", "ConsoleDemoApp\ConsoleDemoApp.csproj", "{7174BFEB-4FDF-460C-A585-99819F3D13FC}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDependencyInjection01", "ConsoleDependencyInjection01\ConsoleDependencyInjection01.csproj", "{F4320533-BD3C-4487-9706-1DD1B6D3E0D6}"
 EndProject
