@@ -6,22 +6,29 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using CampusWebApp.Models;
+using Microsoft.AspNetCore.Authorization;
+using CampusWebApp.Repository.Interfaces;
 
 namespace CampusWebApp.Controllers
 {
+    [Authorize]
     public class StudentsController : Controller
     {
-        private readonly ApplicationDbContext _context;
+        // private readonly IRepository<Student> _context;
 
-        public StudentsController(ApplicationDbContext context)
+        protected IRepository<Student> _context { get; set; }
+
+        public StudentsController(IRepository<Student> context)
         {
             _context = context;
         }
 
-        // GET: Students
+         
+         // GET: Students
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Students.ToListAsync());
+         
+            return View(await _context.GetAllAsync());
         }
 
         // GET: Students/Details/5
@@ -32,8 +39,8 @@ namespace CampusWebApp.Controllers
                 return NotFound();
             }
 
-            var Student = await _context.Students
-                .FirstOrDefaultAsync(m => m.StudentId == id);
+            var Student = await _context.GetByIdAsync(1);
+               
             if (Student == null)
             {
                 return NotFound();
@@ -58,7 +65,7 @@ namespace CampusWebApp.Controllers
             if (ModelState.IsValid)
             {
                 _context.Add(Student);
-                await _context.SaveChangesAsync();
+                await _context.SaveAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(Student);
@@ -72,7 +79,7 @@ namespace CampusWebApp.Controllers
                 return NotFound();
             }
 
-            var Student = await _context.Students.FindAsync(id);
+            var Student = await _context.GetByIdAsync(1);
             if (Student == null)
             {
                 return NotFound();
@@ -97,11 +104,11 @@ namespace CampusWebApp.Controllers
                 try
                 {
                     _context.Update(Student);
-                    await _context.SaveChangesAsync();
+                    await _context.SaveAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!StudentExists(Student.StudentId))
+                    if ( ! await StudentExists(Student.StudentId))
                     {
                         return NotFound();
                     }
@@ -123,8 +130,8 @@ namespace CampusWebApp.Controllers
                 return NotFound();
             }
 
-            var Student = await _context.Students
-                .FirstOrDefaultAsync(m => m.StudentId == id);
+            var Student = await _context.GetByIdAsync(1);
+               
             if (Student == null)
             {
                 return NotFound();
@@ -138,15 +145,15 @@ namespace CampusWebApp.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var Student = await _context.Students.FindAsync(id);
-            _context.Students.Remove(Student);
-            await _context.SaveChangesAsync();
+            var Student = await _context.GetByIdAsync(id);
+                     _context.Remove(Student.StudentId);
+            await _context.SaveAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool StudentExists(int id)
+        private async Task<bool> StudentExists(int id)
         {
-            return _context.Students.Any(e => e.StudentId == id);
+            return await _context.GetByIdAsync(id) == null ? false : true;
         }
     }
 }
