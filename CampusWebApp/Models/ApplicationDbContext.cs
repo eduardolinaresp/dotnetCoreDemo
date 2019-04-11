@@ -4,6 +4,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CampusWebApp.Areas.Instructors.Models;
+
 
 namespace CampusWebApp.Models
 {
@@ -15,6 +17,9 @@ namespace CampusWebApp.Models
 
 
         public DbSet<Student> Students { get; set; }
+
+
+        public DbSet<Instructor> Instructor { get; set; }
     }
 }
 

@@ -75,6 +75,11 @@ namespace CampusWebApp
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
+                         name: "Instructors",
+                         template: "{area:exists}/{controller}/{action}",
+                         defaults: new { action = "Index" });
+
+                routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
