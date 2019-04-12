@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using CampusWebApp.Areas.Instructors.Models;
+using CampusWebApp.Areas.Prospects.Models;
 
 
 namespace CampusWebApp.Models
@@ -19,7 +20,12 @@ namespace CampusWebApp.Models
         public DbSet<Student> Students { get; set; }
 
 
-        public DbSet<Instructor> Instructor { get; set; }
+        public DbSet<Instructor> Instructors { get; set; }
+
+
+        public DbSet<Prospect> Prospects { get; set; }
+
+        public DbSet<DemoEntity> Demos { get; set; }
     }
 }
 

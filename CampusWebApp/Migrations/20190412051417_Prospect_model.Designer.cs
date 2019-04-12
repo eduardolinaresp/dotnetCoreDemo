@@ -4,14 +4,16 @@ using CampusWebApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace CampusWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190412051417_Prospect_model")]
+    partial class Prospect_model
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,29 +36,6 @@ namespace CampusWebApp.Migrations
                     b.ToTable("TblInstructor");
                 });
 
-            modelBuilder.Entity("CampusWebApp.Areas.Prospects.Models.DemoEntity", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int>("Extn");
-
-                    b.Property<string>("Name");
-
-                    b.Property<string>("Office");
-
-                    b.Property<string>("Position");
-
-                    b.Property<long>("Salary");
-
-                    b.Property<DateTime>("StartDate");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Demos");
-                });
-
             modelBuilder.Entity("CampusWebApp.Areas.Prospects.Models.Prospect", b =>
                 {
                     b.Property<int>("ProspectId")
@@ -71,7 +50,7 @@ namespace CampusWebApp.Migrations
 
                     b.HasKey("ProspectId");
 
-                    b.ToTable("Prospects");
+                    b.ToTable("Prospect");
                 });
 
             modelBuilder.Entity("CampusWebApp.Models.ApplicationRole", b =>

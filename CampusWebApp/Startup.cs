@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
+using CampusWebApp.Areas.Prospects.Infrastructure;
+using CampusWebApp.Areas.Prospects.Services.Implementatios;
+using CampusWebApp.Areas.Prospects.Services.Interfaces;
 using CampusWebApp.Models;
 using CampusWebApp.Repository.Implementations;
 using CampusWebApp.Repository.Interfaces;
@@ -14,6 +18,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json.Serialization;
 
 namespace CampusWebApp
 {
@@ -48,7 +53,15 @@ namespace CampusWebApp
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
 
-             services.AddScoped<IRepository<Student>, StudentRepository>();
+            services.AddScoped<IRepository<Student>, StudentRepository>();
+            services.AddScoped<IDemoService, DefaultDemoService>();
+
+            services
+                .AddAntiforgery(options => options.HeaderName = "XSRF-TOKEN")
+                .AddMvc()
+                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver());
+
+            services.AddAutoMapper(options => options.AddProfile<MappingProfile>());
 
         }
 
@@ -74,6 +87,11 @@ namespace CampusWebApp
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                   name: "areas",
+                   template: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                 );
+
                 routes.MapRoute(
                          name: "Instructors",
                          template: "{area:exists}/{controller}/{action}",

@@ -17,12 +17,20 @@
     {
       "library": "jquery-validate@1.17.0",
       "destination": "wwwroot/lib/jquery-validate/"
+    },
+    {
+      "library": "twitter-bootstrap@4.3.1",
+      "destination": "wwwroot/lib/twitter-bootstrap/",
+      "files": [
+        "js/bootstrap.min.js",
+        "js/bootstrap.js",
+        "js/bootstrap.bundle.js",
+        "js/bootstrap.bundle.js.map",
+        "css/bootstrap.css",
+        "css/bootstrap.css.map",
+        "css/bootstrap-grid.css",
+        "css/bootstrap-reboot.css"
+      ]
     }
-  ,
-  {
-    "provider": "cdnjs",
-    "library": "twitter-bootstrap@4.3.1",
-    "destination": "wwwroot/lib/twitter-bootstrap/"
-  }
-]
+  ]
 }
