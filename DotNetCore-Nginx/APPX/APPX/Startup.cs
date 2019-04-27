@@ -7,9 +7,12 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Npgsql.EntityFrameworkCore.PostgreSQL;
 
 namespace APPX
 {
@@ -34,6 +37,20 @@ namespace APPX
 
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+
+            //services.AddEntityFrameworkNpgsql()
+            //           .AddDbContext<ApplicationDbContext>()
+            //           .BuildServiceProvider();
+
+            services.AddDbContext<ApplicationDbContext>(options =>
+
+            options.UseNpgsql(Configuration.GetConnectionString("ApplicationDbContext")));
+
+            services.AddIdentity<IdentityUser, IdentityRole>(
+                   option => option.Stores.MaxLengthForKeys = 128)
+                        .AddEntityFrameworkStores<ApplicationDbContext>()
+                        .AddDefaultUI()
+                        .AddDefaultTokenProviders();
 
 
             services.Configure<ForwardedHeadersOptions>(options =>
@@ -65,6 +82,8 @@ namespace APPX
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+
+            app.UseAuthentication();
 
             app.UseMvc(routes =>
             {
