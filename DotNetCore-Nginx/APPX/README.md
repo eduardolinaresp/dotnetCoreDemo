@@ -15,6 +15,10 @@
 # Ingresar contenedor 
 
     docker exec -i -t appx_container bash	
+	
+# Eliminar contenedores 
+
+	docker rm -vf $(docker ps -a -q)
 
 # Habilitar Kestrel remote conections
 
@@ -26,5 +30,7 @@
 
 	https://weblog.west-wind.com/posts/2016/sep/28/external-network-access-to-kestrel-and-iis-express-in-aspnet-core
 	
+	https://devblogs.microsoft.com/aspnet/configuring-https-in-asp-net-core-across-different-platforms/
 	
-	docker rm -vf $(docker ps -a -q)
+	
+	
