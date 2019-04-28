@@ -12,8 +12,14 @@
 
     docker-compose run --rm appx dotnet ef database update
 
-#Ejecutar proyecto
+# Ejecutar proyecto
 
 	docker-compose up -d
 	
 	docker rm -vf $(docker ps -a -q)
+	
+# Documentacion por cada proyecto la encuentras acá
+
+- [appx](APPX/APPX.md)
+- [nginx](NGINX/NGINX.md)
+- [postgres](POSTGRES/README.md)
