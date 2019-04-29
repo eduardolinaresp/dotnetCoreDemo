@@ -22,4 +22,4 @@
 
 - [appx](APPX/APPX.md)
 - [nginx](NGINX/NGINX.md)
-- [postgres](POSTGRES/README.md)
+- [postgres](POSTGRES/POSTGRES.md)

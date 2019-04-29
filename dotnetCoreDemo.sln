@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDemoApp", "ConsoleDemoApp\ConsoleDemoApp.csproj", "{7174BFEB-4FDF-460C-A585-99819F3D13FC}"
 EndProject
@@ -11,7 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleDependencyInjection0
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CampusConsoleApp", "CampusConsoleApp\CampusConsoleApp.csproj", "{674152C2-058F-4378-9AC8-FD5FF63D2A61}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CampusWebApp", "CampusWebApp\CampusWebApp.csproj", "{6C896F3E-6598-433A-A472-262E4D376361}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CampusWebApp", "CampusWebApp\CampusWebApp.csproj", "{6C896F3E-6598-433A-A472-262E4D376361}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerDemoApp", "DockerDemoApp\APPX\APPX.csproj", "{C260EE6A-72C3-455E-81C7-809A46F8DA61}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{6C896F3E-6598-433A-A472-262E4D376361}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C896F3E-6598-433A-A472-262E4D376361}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C896F3E-6598-433A-A472-262E4D376361}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C260EE6A-72C3-455E-81C7-809A46F8DA61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C260EE6A-72C3-455E-81C7-809A46F8DA61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C260EE6A-72C3-455E-81C7-809A46F8DA61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C260EE6A-72C3-455E-81C7-809A46F8DA61}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

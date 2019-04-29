@@ -6,7 +6,7 @@ FROM microsoft/dotnet:latest
 #ENV ASPNETCORE_ENVIRONMENT="Staging"
 
 # Copy files to app directory
-COPY /APPX/ /app
+COPY ./ /app
 
 # Set working directory
 WORKDIR /app
