@@ -19,10 +19,10 @@ RUN ["dotnet", "build"]
 
 # Open port
 #EXPOSE 5000/tcp
-#EXPOSE 5000
-EXPOSE 5001
+EXPOSE 5000
+#EXPOSE 5001
 
 # Run the app
 #CMD ["dotnet", "run"]
-ENTRYPOINT ["dotnet", "run", "--urls", "https://0.0.0.0:5001"]
+ENTRYPOINT ["dotnet", "run", "--urls", "https://0.0.0.0:5000"]
 

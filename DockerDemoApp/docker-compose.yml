@@ -1,13 +1,17 @@
 version: '3'
 services:
-  nginx:
-   build: ./NGINX
+   appx:
+    build: ./APPX
+    #command: bash  -c "dotnet run --urls https://0.0.0.0:5000"
+    command: bash  -c "dotnet ef database update"
     #volumes:
-    #  - /var/lib/postgresql/data
-   ports:
-     - "80:80"
-
-  db:
+    #   - .:/myapp
+    ports:
+      - "5000:5000"
+    #  - "5001:5001"
+    depends_on:
+      - db 
+   db:
     build: ./POSTGRES
     volumes:
       - /var/lib/postgresql/data
@@ -17,14 +21,12 @@ services:
       - POSTGRES_DB=${POSTGRES_DB}
       - POSTGRES_USER=${POSTGRES_USER}
       - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
-  appx:
-    build: ./APPX
-    #command: bash  -c "dotnet run --urls https://0.0.0.0:5000"
-    command: bash  -c "dotnet ef database update"
+ 
+   nginx:
+     build: ./NGINX
     #volumes:
-    #   - .:/myapp
-    ports:
-      - "5000:5000"
-      - "5001:5001"
-    depends_on:
-      - db
+    #  - /var/lib/postgresql/data
+     ports:
+      - "80:80"
+     depends_on:
+      - appx 

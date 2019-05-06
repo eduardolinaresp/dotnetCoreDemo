@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -54,10 +55,20 @@ namespace APPX
 
 
             services.Configure<ForwardedHeadersOptions>(options =>
-                {
-                    options.ForwardedHeaders = 
-                        ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
-                });
+            {
+                
+                options.ForwardLimit = 2;
+                options.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("172.17.0.0"),16));
+                options.ForwardedHeaders =
+                    ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto; 
+               
+                //options.KnownNetworks.Clear();
+               // options.KnownProxies.Clear();
+
+
+            });
+
+            //app.UseForwardedHeaders(forwardOptions);
 
 
         }
@@ -66,8 +77,18 @@ namespace APPX
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
 
-            app.UseForwardedHeaders();
-            
+              var forwardingOptions = new ForwardedHeadersOptions()
+              {
+                  ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto 
+                                    
+              };
+                
+              forwardingOptions.KnownNetworks.Add(new IPNetwork(IPAddress.Parse("172.17.0.0"), 16)); //its loopback by default
+             // forwardingOptions.KnownProxies.Clear();
+
+              app.UseForwardedHeaders(forwardingOptions);                           
+
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
