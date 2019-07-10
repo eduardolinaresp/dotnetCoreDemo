@@ -15,6 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CampusWebApp", "CampusWebAp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DockerDemoApp", "DockerDemoApp\APPX\APPX.csproj", "{C260EE6A-72C3-455E-81C7-809A46F8DA61}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReactDotNetAPI", "ReactDotNetAPI\ReactDotNetAPI.csproj", "{C260EE6A-72C3-455E-81C7-809A46F8DA61}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
