@@ -23,7 +23,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AuthenticatedDotNetCoreApi"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcGreeter", "GrpcGreeter\GrpcGreeter.csproj", "{EB2EDDC1-E6DF-4D14-94C3-72320125B0EB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GrpcGreeterClient", "GrpcGreeterClient\GrpcGreeterClient.csproj", "{64862622-2BCD-405C-AD35-8E47EBE77E0A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcGreeterClient", "GrpcGreeterClient\GrpcGreeterClient.csproj", "{64862622-2BCD-405C-AD35-8E47EBE77E0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BooksApiMongo", "BooksApiMongo\BooksApiMongo.csproj", "{6D1550F4-BF1C-48B9-ABB0-1B6FF4BB8B2E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +77,10 @@ Global
 		{64862622-2BCD-405C-AD35-8E47EBE77E0A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{64862622-2BCD-405C-AD35-8E47EBE77E0A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{64862622-2BCD-405C-AD35-8E47EBE77E0A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D1550F4-BF1C-48B9-ABB0-1B6FF4BB8B2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D1550F4-BF1C-48B9-ABB0-1B6FF4BB8B2E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D1550F4-BF1C-48B9-ABB0-1B6FF4BB8B2E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D1550F4-BF1C-48B9-ABB0-1B6FF4BB8B2E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
