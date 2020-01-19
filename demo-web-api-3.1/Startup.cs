@@ -15,6 +15,9 @@ using Microsoft.OpenApi.Models;
 using Microsoft.AspNetCore.Authentication;
 using System.Reflection;
 using System.IO;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 
 namespace demo_web_api_3._1
 {
@@ -32,6 +35,28 @@ namespace demo_web_api_3._1
         {
             services.AddControllers();
             services.AddCors();
+
+            // Agrega JWT Authentication
+           // https://thecodebuzz.com/jwt-authentication-in-asp-net-core-3-0-with-examples/
+
+            services.AddAuthentication(option =>
+            {
+                option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                option.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+
+            }).AddJwtBearer(options =>
+            {
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidateAudience = true,
+                    ValidateLifetime = false,
+                    ValidateIssuerSigningKey = true,
+                    ValidIssuer = Configuration["JwtToken:Issuer"],
+                    ValidAudience = Configuration["JwtToken:Issuer"],
+                    IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtToken:SecretKey"]))
+                };
+            });
 
             services.AddSwaggerGen(c =>
             {
@@ -107,6 +132,13 @@ namespace demo_web_api_3._1
             app.UseHttpsRedirection();
 
             app.UseRouting();
+
+            app.UseCors(option => option
+               .AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader());
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 
