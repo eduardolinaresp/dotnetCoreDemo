@@ -16,4 +16,19 @@
 - [DockerDemoApp](DockerDemoApp/DockerDemoApp.md)
 - [BooksApiMongo](BooksApiMongo/BooksApiMongo.md)
 	
-	
+##	01-03-Comandos Utiles
+
+### 01-03-01- Para Agregar repositorio remoto a personal o Branch
+
+		git remote add personal https://eduardo_linares@bitbucket.org/teampowerbit/srda.git
+
+### 01-03-02- Para hacer push al repositorio remoto personal 
+
+		git push personal Branch
+   
+   
+###	01-03-03- Para listar remotos
+
+
+		git remote -v
+
