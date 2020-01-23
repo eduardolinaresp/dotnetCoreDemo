@@ -40,7 +40,7 @@ namespace demo_web_api_3._1.Controllers
 
         private string BuildToken()
         {
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JwtToken:SecuredKey"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JwtToken:SecretKey"]));
             var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(_config["JwtToken:Issuer"],

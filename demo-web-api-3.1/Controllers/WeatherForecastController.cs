@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 
 namespace demo_web_api_3._1.Controllers
 {
-  // [Authorize]
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -25,8 +25,14 @@ namespace demo_web_api_3._1.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Obtiene el resumen del tiempo
+        /// </summary>
+        /// <params name="city">nombre de la ciudad del tiempo</params>
+        /// <returns></returns>
+
         [HttpGet]
-        public IEnumerable<WeatherForecast> Get()
+        public IEnumerable<WeatherForecast> Get(string city)
         {
             var rng = new Random();
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast

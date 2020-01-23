@@ -73,6 +73,22 @@ namespace demo_web_api_3._1
                     Description = "JWT Authorization header using the Bearer scheme.",
                 });
 
+                c.AddSecurityRequirement(new OpenApiSecurityRequirement
+                {
+                    {
+                          new OpenApiSecurityScheme
+                            {
+                                Reference = new OpenApiReference
+                                {
+                                    Type = ReferenceType.SecurityScheme,
+                                    Id = "Bearer"
+                                }
+                            },
+                            new string[] {}
+
+                    }
+                });
+
                 //////Add Operation Specific Authorization///////
                 c.OperationFilter<AuthOperationFilter>();
                 ////////////////////////////////////////////////

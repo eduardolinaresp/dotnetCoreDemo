@@ -4,5 +4,12 @@
         <name>demo_web_api_3._1</name>
     </assembly>
     <members>
+        <member name="M:demo_web_api_3._1.Controllers.WeatherForecastController.Get(System.String)">
+            <summary>
+            Obtiene el resumen del tiempo
+            </summary>
+            <params name="city">nombre de la ciudad del tiempo</params>
+            <returns></returns>
+        </member>
     </members>
 </doc>
